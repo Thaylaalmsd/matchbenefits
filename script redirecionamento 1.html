@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Invitation - Exclusive Dating</title>
+    
+    <style>
+        /* Estilos da página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        .landing-container {
+            background: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body id="page-body">
+
+    <div class="landing-container">
+        <h1 id="title">🔥 VIP Invitation: Meet Exclusive Singles Today!</h1> <!-- Título -->
+        <p id="paragraph">Your invitation is waiting! Unlock exclusive profiles and start chatting now. Just confirm your email!</p> <!-- Parágrafo -->
+        <button class="cta-button" id="cta-button" onclick="redirectUser()">Start Now – Meet Singles! 💖</button> <!-- Botão -->
+    </div>
+
+    <script>
+        // === CONFIGURAÇÕES ===
+        var backgroundImage = "https://image.tensorartassets.com/cdn-cgi/image/anim=true,plain=false,w=2048,f=jpeg,q=85/model_showcase/711657475419648310/754b95fb-c884-191d-045a-28edb4d81ff7.png"; // Atualize com a nova imagem
+        
+        var offerUSA = "https://t.slext2.com/212319/8517/0"; 
+        var smartlink = "https://bggcdje.pixls.one/p/ye6cD"; 
+        
+        document.getElementById("page-body").style.backgroundImage = "url('" + backgroundImage + "')";
+
+        // === FUNÇÃO PARA REDIRECIONAMENTO ===
+        async function redirectUser() {
+            try {
+                let response = await fetch('https://ipinfo.io/json?token=54e5b8714e7b86');
+                let data = await response.json();
+                let country = data.country; 
+
+                window.location.href = (country === "US") ? offerUSA : smartlink;
+            } catch (error) {
+                console.error("Erro ao obter localização:", error);
+                window.location.href = smartlink; // Fallback
+            }
+        }
+    </script>
+</body>
+</html>
